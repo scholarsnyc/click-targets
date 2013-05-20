@@ -5,14 +5,17 @@ $(document).ready(function () {
   var turn = 1;
   
   function getCurrentColor() {
-    var players = ['red', 'blue'];
+    var players = ['purple', 'blue'];
     var currentPlayer = players[turn % 2];
-    turn = turn + 1;
+    turn++;
     return currentPlayer;
   }
   
   $('.box').on('click', function () {
-    $(this).css('backgroundColor', getCurrentColor());
+    var $box = $(this);
+    if ($box.css('backgroundColor') === "rgba(0, 0, 0, 0)") {
+      $box.css('backgroundColor', getCurrentColor());
+    }
   });
   
 });
